@@ -89,9 +89,11 @@ set -s set-clipboard external
 set -g mouse on
 ```
 
-It is available at `contrib/tmux/urxvt-integration.conf`. To use it from an
-existing `~/.tmux.conf`, source it or copy the two settings. Confirm support
-inside tmux with:
+It is available at `contrib/tmux/urxvt-integration.conf`. The Ubuntu package
+also installs it as
+`/usr/share/doc/rxvt-unicode/urxvt-integration.conf`. To use it from an existing
+`~/.tmux.conf`, source it or copy the two settings. Confirm support inside tmux
+with:
 
 ```sh
 tmux show -s set-clipboard
