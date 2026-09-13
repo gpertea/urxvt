@@ -42,6 +42,8 @@ and tmux mouse/history integration. These drafts are not implementation approval
 - Keep communication and documentation concise. Use ASCII in generated code and
   documentation. Add brief, lower-case comments for non-obvious code; use `## `
   for comment lines in shell, R, and other languages using `#` comments.
+- Push committed substantial work or setup to `origin` in both repositories
+  before ending the task, and verify the remote refs.
 - When an implementation plan is approved, record it before implementation in
   `audit/plan_<YY-MM-DD_hh-mm>_<sessionID>.md`; use the Git branch or process ID
   if the session ID is unavailable. Keep `audit/` untracked unless requested.
@@ -49,3 +51,26 @@ and tmux mouse/history integration. These drafts are not implementation approval
   successful commands and successful non-trivial actions.
 - Put reviewed companion documentation in `docs/`. For short tables, prefer
   fenced ASCII tables, generate padding with a formatter, and verify alignment.
+
+## Codebase Knowledge Graph
+
+- Use the project-scoped `codebase-memory-mcp` tools for code requests that
+  benefit from structural context: architecture, symbol discovery, callers,
+  callees, dependencies, impact analysis, dead code, refactor scope, and
+  unfamiliar code paths.
+- The code index root is `/home/gpertea/work/urxvt/rxvt-unicode`, the
+  independent source checkout. Do not index the companion root: its ignore
+  rules exclude the source checkout.
+- At first use, call `list_projects`. If that source checkout is absent or
+  stale, call `index_repository` with its exact root, then check `index_status`.
+- Prefer `search_graph`, `trace_path`, and `get_code_snippet` for discovery.
+  Use `get_architecture`, `query_graph`, and `detect_changes` when relevant.
+- After finding candidate paths, call `check_index_coverage` before relying on
+  graph conclusions. Verify exact source with normal file tools.
+- Use `rg` directly for literals, errors, configuration, documentation,
+  non-code files, or when graph results are insufficient.
+- Keep activation project-scoped. Never add global MCP config, hooks,
+  instructions, or skills for this server.
+- If the MCP is unavailable in the current session, state that a new Codex
+  session is required and continue with local tools. Never claim graph evidence
+  without calling the graph tools.
