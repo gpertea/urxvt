@@ -21,6 +21,9 @@ References:
 
 ## Activation and environment
 
+For existing workstation configurations and package replacement, see
+[transition and upgrade advice](transition-upgrade.md).
+
 `URxvt.xtermCompat: true` is the default. `-xterm-compat` enables the profile
 and `+xterm-compat` disables it.
 

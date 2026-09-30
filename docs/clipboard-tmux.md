@@ -22,6 +22,9 @@ routing applies to every application which enables terminal mouse reporting.
 
 ## Defaults and resources
 
+For local configuration changes and activation steps, see
+[transition and upgrade advice](transition-upgrade.md).
+
 All new behaviors are enabled by default in this fork:
 
 ```text
