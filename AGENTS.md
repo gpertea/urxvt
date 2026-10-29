@@ -12,12 +12,15 @@ This is the companion (chaperone) repository for agent-assisted work on
 
 # Branches and releases
 
-- Use `devel` as the working and GitHub default branch in both repositories,
-  tracking `origin/devel`.
+- In the companion repository, use `devel` as the working and GitHub default
+  branch, tracking `origin/devel`.
+- In `rxvt-unicode/`, keep `devel` aligned with upstream devel; do not add
+  fork-specific changes there. Use `gdev` as the cumulative fork working
+  branch, tracking `origin/gdev`.
 - Create temporary feature branches in `rxvt-unicode/` as needed; integrate
-  completed work into that fork's `devel` branch.
-- Use the fork's `devel` branch to build and publish installable `.deb` release
-  packages. Keep packaging and CI changes in the code repository.
+  completed work into `gdev`.
+- Use `gdev` to build and publish installable `.deb` release packages.
+  Keep packaging and CI changes in the code repository.
 - Prepare focused feature PRs for upstream when needed; exclude companion
   material and unrelated fork changes.
 

@@ -10,6 +10,19 @@ See [xterm compatibility](xterm-compat.md) and
 The older xterm document's deferred OSC 52 and tmux items describe the first
 feature stage; the clipboard document describes their subsequent implementation.
 
+## Source branches
+
+In `gpertea/rxvt-unicode`, `gdev` is the cumulative fork branch for
+development and future package builds. It starts at `87454260`, the
+`clipboard-tmux` commit, which includes the earlier `xterm-compat` commit
+`a92e1183`. The feature branches retain their individual review history.
+The source repository's `devel` branch stays aligned with upstream devel.
+The companion repository, `gpertea/urxvt`, continues to use `devel`.
+
+The existing package changelog lists both feature sets. Its exact source
+revision is not recorded in Git, and Debian packaging and release metadata
+have not yet been committed to the source repository.
+
 ## Local configuration changes, 2026-09-30
 
 Changes were applied only on the local workstation. Packages were previously
