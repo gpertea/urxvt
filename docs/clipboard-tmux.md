@@ -20,6 +20,9 @@ The implemented layer is:
 The implementation does not claim that mouse mode identifies tmux. The same
 routing applies to every application which enables terminal mouse reporting.
 
+For reproduced mouse reporting after a killed application, including inherited
+reset behavior, see the [mouse reporting investigation](mouse-reporting-investigation.md).
+
 ## Defaults and resources
 
 For local configuration changes and activation steps, see
