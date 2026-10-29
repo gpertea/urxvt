@@ -1,5 +1,8 @@
 # Mouse reporting after an application is killed
 
+For the subsequent patch and regression results, see
+[mouse reset recovery](mouse-reset-fix.md).
+
 ## Sources and scope
 
 Investigation date: 2026-10-29. The source base directory is
@@ -95,4 +98,5 @@ Probe scripts are `audit/mouse-repro.py` and `audit/shell-mouse-repro.py`.
 The probes used a small mouse-enabled process rather than Claude or Codex.
 They establish the terminal failure and the inherited recovery defect, but
 do not establish which application, exit signal, or cleanup path produced a
-particular live incident. No terminal implementation was changed or installed.
+particular live incident. These probes preceded the implementation documented
+in the fix notes; they did not change or install a terminal implementation.

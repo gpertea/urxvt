@@ -36,6 +36,8 @@ and tmux mouse/history integration. These drafts are not implementation approval
 
 # Working rules
 
+- Keep current state and resuming instructions in [STATUS.md](STATUS.md), and
+  append round history to [docs/DEVLOG.md](docs/DEVLOG.md).
 - Inspect status, branch, remotes, and applicable instructions in both repositories
   before changes. Use explicit paths, including `git -C rxvt-unicode` for code work.
 - Preserve existing user changes. Keep changes minimal and feature tracks
