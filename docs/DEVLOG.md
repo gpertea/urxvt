@@ -2,6 +2,21 @@
 
 Newest entries first. Existing entries are retained as written.
 
+## 2026-10-30  Stock tmux manual mouse recovery
+
+Branch: companion/meta `devel`. Documentation commit: `9ce7732`.
+Managed source branches and installed binaries are unchanged.
+
+- Done: added [a recovery guide](tmux-mouse-recovery.md), linked it from README
+  and native cleanup notes, and documented pane targets and a prefix-R binding.
+  Kept the companion tmux patch optional for automatic pane cleanup.
+- Measured: installed stock tmux 3.4 reproduced mouse fragments in Bash after
+  SIGKILL. `send-keys -R -t cleanup:0.0` stopped further fragments after Ctrl+U
+  cleared old input. Shell PID, another pane's mouse mode, and tmux's own mouse
+  option were preserved. Documentation ASCII, local links, and whitespace pass.
+- Not done: automatic recovery using stock tmux; package builds or installation.
+- Next: record reproducible urxvt packaging; keep custom tmux optional.
+
 ## 2026-10-30  Native foreground-job mouse cleanup
 
 Branches: companion/meta `devel`; managed source `fix/mouse-cleanup` and `gdev`.
