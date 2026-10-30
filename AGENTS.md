@@ -12,15 +12,19 @@ This is the companion (chaperone) repository for agent-assisted work on
 
 # Branches and releases
 
-- In the companion repository, use `devel` as the working and GitHub default
-  branch, tracking `origin/devel`.
-- In `rxvt-unicode/`, keep `devel` aligned with upstream devel; do not add
-  fork-specific changes there. Use `gdev` as the cumulative fork working
-  branch, tracking `origin/gdev`.
-- Create temporary feature branches in `rxvt-unicode/` as needed; integrate
-  completed work into `gdev`.
-- Use `gdev` to build and publish installable `.deb` release packages.
-  Keep packaging and CI changes in the code repository.
+- Companion/meta repository: `gpertea/urxvt`, rooted at
+  `/home/gpertea/work/urxvt`. Its working and GitHub default branch is `devel`,
+  tracking `origin/devel`. Commit companion documentation and instructions here.
+- Managed source repository: `gpertea/rxvt-unicode`, rooted at
+  `/home/gpertea/work/urxvt/rxvt-unicode`. Its cumulative fork branch is `gdev`,
+  tracking `origin/gdev`. Base source feature/fix branches on `gdev` and
+  integrate completed source work into `gdev`.
+- In the managed source repository only, keep `devel` aligned with upstream
+  devel. Fork-specific code, tests, packaging, and CI belong on `gdev` or its
+  feature/fix branches. Build installable `.deb` packages from `gdev`.
+- Use `git -C rxvt-unicode ...` for managed source operations. Plain `git ...`
+  from this directory operates on the companion/meta repository. The `gdev`
+  rule applies to the managed source repository, not to this meta repository.
 - Prepare focused feature PRs for upstream when needed; exclude companion
   material and unrelated fork changes.
 
