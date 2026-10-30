@@ -7,6 +7,7 @@ Reviewed requirements, investigation results, and workflow material for
 - [Current status and resuming](STATUS.md)
 - [Development log](docs/DEVLOG.md)
 - [Branch conventions](docs/decisions/001-fork-branches.md)
+- [Recover a tmux pane flooded with mouse reports](docs/tmux-mouse-recovery.md)
 - [Native mouse cleanup](docs/native-mouse-cleanup.md)
 - [Mouse reset fix and validation](docs/mouse-reset-fix.md)
 - [Package and configuration notes](docs/transition-upgrade.md)

@@ -29,6 +29,10 @@ the guard preserves existing reporting rather than disabling a live program.
 
 ## tmux pane cleanup
 
+For manual recovery with stock tmux and no source patches, use
+[`send-keys -R`](tmux-mouse-recovery.md). The companion source patch below is
+only needed for the implemented automatic pane cleanup policy.
+
 The outer urxvt PTY observes a tmux client, not each pane's foreground job.
 The companion patch is `contrib/tmux/mouse-auto-reset-3.4.patch`, documented in
 `contrib/tmux/mouse-auto-reset.md`. Its target is the official tmux 3.4 archive:
