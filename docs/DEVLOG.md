@@ -2,6 +2,27 @@
 
 Newest entries first. Existing entries are retained as written.
 
+## 2026-10-30  Native foreground-job mouse cleanup
+
+Branches: companion/meta `devel`; managed source `fix/mouse-cleanup` and `gdev`.
+Source commit: `fdc69e5f`. Branch instructions clarified in companion `f358c89`.
+Local plan: [audit plan](../audit/plan_26-10-30_08-19_fix-mouse-cleanup.md), untracked.
+
+- Done: automatic mouse/focus cleanup on observed job handoffs, saved state
+  for stopped/resumed jobs, dead-group pruning, held-terminal cleanup, and a
+  tested companion tmux 3.4 patch for pane-local jobs and retained dead panes.
+  Integrated and pushed source changes to managed `gdev`.
+- Measured: 224 reset/cleanup cases passed across standalone/daemon and
+  Perl/no-Perl, plus existing keyboard, resource, OSC/color, clipboard, and
+  tmux checks. Multiline paste retained Perl confirmation and bracketed paste.
+  Source inputs and zero-fuzz application of the tmux patch matched builds.
+  Absolute Perl paths and fallback rejection correct the gap in prior daemon
+  checks, which did not establish active Perl hooks.
+- Not done: packaging/install, universal attribution of mode-setting output
+  queued across unobserved job transitions, and hidden SSH-side job detection.
+  The controlled queued-output probe still reproduces that documented limit.
+- Next: record and prepare reproducible urxvt/tmux package builds.
+
 ## 2026-10-29  Mouse reset recovery
 
 Branches: companion `devel`; source `fix/mouse-reset` and `gdev`.

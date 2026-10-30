@@ -1,5 +1,10 @@
 # Mouse reset recovery: implementation and validation
 
+Subsequent automatic cleanup and corrected Perl/daemon validation are described
+in [native mouse cleanup](native-mouse-cleanup.md). The original daemon runs
+used relative Perl library paths and did not establish that Perl hooks were
+active; subsequent checks use absolute paths and reject fallback.
+
 ## Sources
 
 The source base directory is `/home/gpertea/work/urxvt/rxvt-unicode/`.

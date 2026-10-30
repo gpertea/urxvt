@@ -2,40 +2,42 @@
 
 ## Current state
 
-Source checkout: `/home/gpertea/work/urxvt/rxvt-unicode/`.
-`gdev` and `fix/mouse-reset` contain the two original feature commits plus
-resource-lifecycle fix `4f1c2419` and mouse-reset fix `9b38c069`.
-All 120 reset cases passed across standalone/daemon and Perl/no-Perl builds.
-Source `devel` remains at `fd64bc61`. Installed packages and live terminals
-have not been changed. Debian packaging is not yet recorded in Git.
+Managed source base: `/home/gpertea/work/urxvt/rxvt-unicode/`.
+Source `gdev` and `fix/mouse-cleanup` contain `fdc69e5f`: native automatic
+mouse/focus cleanup plus a companion tmux 3.4 pane patch. All 224 regression
+cases passed across standalone/daemon and Perl/no-Perl builds. Source `devel`
+remains at `fd64bc61`; this companion/meta repository stays on `devel`.
+Installed packages and live terminals/servers are unchanged. Packaging is not
+yet recorded in Git. Unobserved queued output and SSH boundaries remain limits.
 
 ## Works now
 
-In each tested build directory, `make check` passed the existing suite and
-30 standalone reset cases. The isolated daemon command also passed 30 cases:
-`PERL5LIB=src URXVT_PERL_LIB=src/perl xvfb-run -a python3 tests/mouse-reset-integration.py --daemon src/rxvt`.
-The current Makefile includes both reset runs in `make check`.
-See [validation details](docs/mouse-reset-fix.md).
+Both isolated builds passed `make check`, including legacy reset tests,
+automatic cleanup, and patched tmux panes. Set `TMUX_MOUSE_CLEANUP_BINARY` to
+the new tmux executable; place it first in PATH for legacy clipboard tests.
+See [commands, results, and limits](docs/native-mouse-cleanup.md).
+The new checks use absolute Perl library paths and reject interpreter fallback.
 
 ## Decisions taken
 
-- [Keep upstream devel separate from cumulative fork gdev](docs/decisions/001-fork-branches.md).
-- Hard reset clears input reporting; automatic exit cleanup remains separate.
+- [Companion devel; managed source cumulative gdev](docs/decisions/001-fork-branches.md).
+- [Native foreground-job cleanup with pane-side tmux support](docs/decisions/002-native-mouse-cleanup.md).
 
 ## Waiting on people
 
-1. None for the completed reset patch.
+1. None for source/test delivery.
 
 ## Next
 
-1. Recover or reconstruct Debian packaging and record source/build provenance
-   before building a replacement package.
-2. Treat automatic shell/application cleanup after unclean exits as separate
-   work if requested.
+1. Record reproducible Debian packaging and provenance for both urxvt and the
+   companion tmux build before preparing replacement packages.
 
 ## Resuming
 
-Source is on `fix/mouse-reset`; the same commits are integrated into `gdev`.
-Read [the fix notes](docs/mouse-reset-fix.md) and [the development log](docs/DEVLOG.md).
-Local logs and the approved plan are untracked under `audit/`. Temporary
-builds are under `/tmp/urxvt-mouse-investigation.lC0jDP/` and may expire.
+Source is on `fix/mouse-cleanup`, integrated and pushed to source `gdev`.
+Read [the native cleanup notes](docs/native-mouse-cleanup.md) and
+[the development log](docs/DEVLOG.md). Local plan, logs, and provenance are
+untracked under `audit/`; builds are under `/tmp/urxvt-mouse-cleanup-build/`.
+Pane cleanup requires a patched tmux server; the outer urxvt change alone
+cannot observe pane jobs. No shell cleanup hooks are required for the tested
+native local/pane paths.

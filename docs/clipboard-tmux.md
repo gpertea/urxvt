@@ -22,6 +22,8 @@ routing applies to every application which enables terminal mouse reporting.
 
 For reproduced mouse reporting after a killed application, including inherited
 reset behavior, see the [mouse reporting investigation](mouse-reporting-investigation.md).
+For automatic local-job cleanup and the required pane-side tmux patch, see
+[native mouse cleanup](native-mouse-cleanup.md).
 
 ## Defaults and resources
 
