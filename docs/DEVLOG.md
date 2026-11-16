@@ -2,6 +2,28 @@
 
 Newest entries first. Existing entries are retained as written.
 
+## 2026-11-16  Verified Ubuntu 24.04 package without debug symbols
+
+Branches: companion/meta `devel`; managed source `gdev`.
+Source packaging commit: `57d33fb9`; companion package record: `c1dbfe4`.
+Local approved plan: [audit plan](../audit/plan_26-11-16_08-54_01a1e4a0-3fc1-7772-8c30-be8a714b1f84.md), untracked.
+
+- Done: recorded Ubuntu-derived Debian packaging, a clean Git export builder,
+  checksum-pinned libev inputs, and embedded source/build provenance. Built
+  `rxvt-unicode_9.31-3build2+xtermcompat3_amd64.deb` from source `gdev`, with
+  all cumulative urxvt patches and no debug payload or debug-symbol package.
+  Saved the package, `.buildinfo`, `.changes`, and SHA256 record in `~/packages/`.
+- Measured: release `make check` passed; extracted setgid standalone/daemon
+  binaries separately passed 88 reset/cleanup cases plus keyboard/clipboard/OSC
+  integration with the packaged Perl library in a private mount namespace.
+  Payload checksums, source export hash, stripped ELF files, package permissions,
+  and artifact copy hashes passed. Apt simulation resolves a single upgrade;
+  installed terminal, daemon, and Perl files remain unchanged. See
+  [the package record](ubuntu-package.md) for exact artifact and provenance.
+- Not done: package installation, a custom tmux package, or cross-environment
+  bit-for-bit reproducibility. The documented queued-output/SSH limits remain.
+- Next: install the verified urxvt package when requested; keep patched tmux optional.
+
 ## 2026-10-30  Stock tmux manual mouse recovery
 
 Branch: companion/meta `devel`. Documentation commit: `9ce7732`.
