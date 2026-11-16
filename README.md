@@ -11,3 +11,4 @@ Reviewed requirements, investigation results, and workflow material for
 - [Native mouse cleanup](docs/native-mouse-cleanup.md)
 - [Mouse reset fix and validation](docs/mouse-reset-fix.md)
 - [Package and configuration notes](docs/transition-upgrade.md)
+- [Ubuntu 24.04 package build and verification](docs/ubuntu-package.md)

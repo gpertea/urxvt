@@ -1,9 +1,13 @@
 # Transition to the custom Ubuntu 24.04 package
 
-The latest local build is `rxvt-unicode_9.31-3build2+xtermcompat2_amd64.deb`.
+The latest local build is `rxvt-unicode_9.31-3build2+xtermcompat3_amd64.deb`.
 It enables xterm compatibility, native selection mirroring, middle-button
-CLIPBOARD paste, and write-only OSC 52 by default. It targets Ubuntu 24.04
-on amd64. Debug symbols are optional.
+CLIPBOARD paste, and write-only OSC 52 by default. It also includes the hard
+reset, resource lifetime, and foreground-job mouse cleanup fixes. It targets
+Ubuntu 24.04 on amd64 and contains no debug symbols. See the
+[build and verification record](ubuntu-package.md) for exact source provenance.
+The installed local package remains `9.31-3build2+xtermcompat2`; building the
+replacement package does not install it.
 
 See [xterm compatibility](xterm-compat.md) and
 [clipboard and tmux integration](clipboard-tmux.md) for the feature contracts.
@@ -19,9 +23,10 @@ development and future package builds. It starts at `87454260`, the
 The source repository's `devel` branch stays aligned with upstream devel.
 The companion repository, `gpertea/urxvt`, continues to use `devel`.
 
-The existing package changelog lists both feature sets. Its exact source
-revision is not recorded in Git, and Debian packaging and release metadata
-have not yet been committed to the source repository.
+The `xtermcompat3` package records its exact source revision and input hashes
+in `/usr/share/doc/rxvt-unicode/build-provenance`. Debian packaging and the
+build recipe are committed to `gdev`. The older `xtermcompat2` package's exact
+source revision remains unrecorded.
 
 ## Local configuration changes, 2026-09-30
 
